@@ -1,6 +1,7 @@
 from transformers import BlipProcessor, BlipForConditionalGeneration, DetrImageProcessor, DetrForObjectDetection
 from PIL import Image
 import torch
+import requests
 
 def get_image_caption(image_path):
     """
@@ -31,7 +32,8 @@ def get_image_caption(image_path):
 
 def detect_objects(image_path):
     # Detect the objects in the given image
-    image = Image.open(image_path).convert("RGB")
+    #image = Image.open(image_path).convert("RGB")
+    image = Image.open(requests.get(image_path, stream=True).raw).convert("RGB")
     device = "cuda" if torch.cuda.is_available() else 'cpu' # cuda
 
     processor = DetrImageProcessor.from_pretrained("facebook/detr-resnet-50")
@@ -61,7 +63,8 @@ def detect_objects(image_path):
 
 if __name__ == '__main__':
     image_path = r"C:\Users\hydon\Downloads\horseback_riding.jpg"
-    caption = get_image_caption(image_path)
-    print(caption)
+    image_path = "https://us.coca-cola.com/content/dam/nagbrands/us/coke/en/products/coke-zero-sugar/kozs-plp-thumbnail.png"
+    #caption = get_image_caption(image_path)
+    #print(caption)
     detections = detect_objects(image_path)
     print(detections)
