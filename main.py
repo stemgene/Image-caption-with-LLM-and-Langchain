@@ -18,7 +18,8 @@ conversational_memory = ConversationBufferWindowMemory(
     return_messages=True
 )
 llm = ChatOpenAI(
-    openai_api_key=os.environ.get("OPENAI_API_KEY"),
+    # openai_api_key=os.environ.get("OPENAI_API_KEY"), # for local usage
+    openai_api_key=st.secrets['auth_key'],
     temperature=0,
     model_name='gpt-3.5-turbo'
 )
