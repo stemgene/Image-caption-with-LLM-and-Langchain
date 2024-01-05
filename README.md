@@ -11,4 +11,6 @@ The whole process has been devided into three parts:
     * Image caption. Use this tool to describe the content of this image by the model of "Salesforce/blip-image-captioning-large". It will return a short caption describing the image.
     * Object detector. Use this tool detect objects by the model of "DetrForObjectDetection". It will return a list of all detected objects. Each element in the list in the format:"[x1, y1, x2, y2] class_name confidence_score."
 3. Implement `Langchain.agent` to call these two tools and get response from OPENAI API.
+
+**Note:** The files "functions.py" and "image_caption_Q&A.ipynb" are for test, won't affect on this project.
     
