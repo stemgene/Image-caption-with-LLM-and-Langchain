@@ -13,4 +13,6 @@ The whole process has been devided into three parts:
 3. Implement `Langchain.agent` to call these two tools and get response from OPENAI API.
 
 **Note:** The files "functions.py" and "image_caption_Q&A.ipynb" are for test, won't affect on this project.
+
+Reference: [Youtube Video](https://www.youtube.com/watch?v=71EOM5__vkI)
     
